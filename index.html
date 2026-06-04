@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATYX | Agencia de Marketing Digital y Diseño Web</title>
+  <meta name="description" content="ATYX es una agencia de marketing digital especializada en creación y gestión de páginas web profesionales. Diseñamos webs que convierten visitantes en clientes." />
+  <meta name="keywords" content="diseño web, marketing digital, SEO, posicionamiento Google, agencia web, páginas web profesionales, ATYX" />
+  <meta name="author" content="ATYX" />
+  <meta property="og:title" content="ATYX | Agencia de Marketing Digital y Diseño Web" />
+  <meta property="og:description" content="Creamos y gestionamos páginas web que convierten visitantes en clientes. Presencia digital que marca la diferencia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://atyx.es/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ATYX | Agencia de Marketing Digital y Diseño Web" />
+  <meta name="twitter:description" content="Creamos y gestionamos páginas web que convierten visitantes en clientes." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23C8102E' d='M50 5 L61 30 L88 18 L76 44 L100 50 L76 56 L88 82 L61 70 L50 95 L39 70 L12 82 L24 56 L0 50 L24 44 L12 18 L39 30 Z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==================== RESET & BASE ==================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ==================== CSS VARIABLES ==================== */
+    :root {
+      --red: #C8102E;
+      --red-dark: #8B0B1F;
+      --navy: #0A1628;
+      --navy-mid: #0D1F3C;
+      --navy-deep: #060F1E;
+      --black: #0A0A0A;
+      --dark: #1A1A1A;
+      --white: #FFFFFF;
+      --gray: #A0A8B8;
+      --gray-light: #D0D5DF;
+    }
+
+    /* ==================== SCROLLBAR ==================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+    /* ==================== PROGRESS BAR ==================== */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), #FF3358);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+      box-shadow: 0 0 8px var(--red);
+    }
+
+    /* ==================== CUSTOM CURSOR ==================== */
+    #cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease;
+      box-shadow: 0 0 10px var(--red);
+    }
+    #cursor-outline {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(200,16,46,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9997;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    }
+    body.hovering #cursor { width: 18px; height: 18px; background: var(--red); }
+    body.hovering #cursor-outline { width: 52px; height: 52px; border-color: rgba(200,16,46,0.3); }
+
+    /* ==================== FLOATING CONTACT BUTTON ==================== */
+    #float-contact {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      width: 56px; height: 56px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #float-contact:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 30px rgba(200,16,46,0.7);
+    }
+    #float-contact svg { width: 24px; height: 24px; fill: white; }
+
+    /* ==================== NAVBAR ==================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(10, 22, 40, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(200,16,46,0.2);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-light);
+      letter-spacing: 0.03em;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 10px 22px !important;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+      box-shadow: 0 2px 12px rgba(200,16,46,0.35);
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: #a50d26 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.55) !important;
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(16px);
+      padding: 24px 5% 32px;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 899;
+      border-top: 1px solid rgba(200,16,46,0.2);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--gray-light);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu a:last-child { border: none; }
+    .mobile-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 12px 20px !important;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600 !important;
+      border: none !important;
+      margin-top: 8px;
+    }
+
+    /* ==================== SECTIONS BASE ==================== */
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      padding: 5px 14px;
+      border: 1px solid rgba(200,16,46,0.3);
+      border-radius: 100px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* ==================== HERO ==================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+    }
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+      padding: 6px 18px;
+      border: 1px solid rgba(200,16,46,0.4);
+      border-radius: 100px;
+      background: rgba(200,16,46,0.06);
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      overflow: hidden;
+    }
+    .hero-title .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    .hero-title .accent { color: var(--red); }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 40px;
+      opacity: 0;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.4);
+    }
+    .btn-primary:hover {
+      background: #a50d26;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200,16,46,0.6);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-2px);
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.6;
+    }
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .scroll-mouse {
+      width: 22px; height: 34px;
+      border: 1.5px solid rgba(200,16,46,0.6);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+    }
+    .scroll-dot {
+      width: 4px; height: 4px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: scrollDot 1.8s ease infinite;
+    }
+    @keyframes scrollDot {
+      0% { transform: translateY(0); opacity: 1; }
+      80% { transform: translateY(14px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 0; }
+    }
+
+    /* ==================== POR QUÉ UNA WEB ==================== */
+    #why {
+      background: var(--navy);
+      padding: 100px 5%;
+    }
+    .why-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+    }
+    .why-card {
+      background: rgba(13,31,60,0.7);
+      border: 1px solid rgba(200,16,46,0.15);
+      border-radius: 14px;
+      padding: 30px 26px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .why-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200,16,46,0.4);
+      box-shadow: 0 12px 40px rgba(200,16,46,0.12);
+    }
+    .why-card-icon {
+      width: 44px; height: 44px;
+      background: rgba(200,16,46,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .why-card-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+    .why-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .why-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Mitos */
+    .myths-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--white);
+    }
+    .myths-title span { color: var(--red); }
+    .myths-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .myth-card {
+      background: var(--navy-mid);
+      border-radius: 14px;
+      padding: 28px 26px;
+      border-left: 3px solid var(--red);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .myth-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(200,16,46,0.1);
+    }
+    .myth-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .myth-myth {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-light);
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .myth-myth::before {
+      content: '"';
+      color: rgba(200,16,46,0.4);
+      font-size: 2rem;
+      position: absolute;
+      top: -10px; left: -6px;
+    }
+    .reality-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4CAF50;
+      margin-bottom: 6px;
+    }
+    .myth-reality {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ==================== SERVICIOS ==================== */
+    #services {
+      background: var(--black);
+      padding: 100px 5%;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--navy-mid);
+      border-radius: 14px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--red);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(200,16,46,0.18);
+    }
+    .service-num {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'Syne', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(200,16,46,0.08);
+      line-height: 1;
+      user-select: none;
+    }
+    .service-icon {
+      width: 50px; height: 50px;
+      background: rgba(200,16,46,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 26px; height: 26px; stroke: var(--red); fill: none; stroke-width: 1.7; }
+    .service-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ==================== PROCESO ==================== */
+    #process {
+      background: var(--navy);
+      padding: 100px 5%;
+    }
+    .process-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .process-timeline {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* Desktop: horizontal */
+    .process-line-wrap {
+      position: absolute;
+      top: 36px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      z-index: 0;
+    }
+    .process-line-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--red), rgba(200,16,46,0.3));
+      box-shadow: 0 0 10px rgba(200,16,46,0.5);
+      transition: width 0.05s linear;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 10px;
+      text-align: center;
+    }
+    .step-dot {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid rgba(200,16,46,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      transition: border-color 0.4s, box-shadow 0.4s;
+      flex-shrink: 0;
+    }
+    .step-dot.active {
+      border-color: var(--red);
+      box-shadow: 0 0 20px rgba(200,16,46,0.35);
+    }
+    .step-dot svg { width: 28px; height: 28px; stroke: var(--red); fill: none; stroke-width: 1.7; }
+    .step-num {
+      position: absolute;
+      top: -8px; right: -8px;
+      width: 22px; height: 22px;
+      background: var(--red);
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+    .step-content p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* Mobile process: vertical */
+    .process-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .process-mobile::before {
+      content: '';
+      position: absolute;
+      left: 28px; top: 36px; bottom: 36px;
+      width: 2px;
+      background: rgba(200,16,46,0.2);
+      z-index: 0;
+    }
+    .process-step-mobile {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding-bottom: 36px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-dot-mobile {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid rgba(200,16,46,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-dot-mobile svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 1.7; }
+    .step-text-mobile h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      padding-top: 14px;
+    }
+    .step-text-mobile p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ==================== NOSOTROS ==================== */
+    #about {
+      background: var(--black);
+      padding: 100px 5%;
+    }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .team-cards {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 56px 0;
+      flex-wrap: wrap;
+    }
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .team-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), #8B0B1F);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(200,16,46,0.35);
+      border: 3px solid rgba(200,16,46,0.4);
+    }
+    .team-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .team-role {
+      font-size: 0.85rem;
+      color: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .value-item {
+      background: var(--navy-mid);
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 2px solid rgba(200,16,46,0.3);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .value-item:hover {
+      border-color: var(--red);
+      transform: translateY(-4px);
+    }
+    .value-icon {
+      width: 44px; height: 44px;
+      background: rgba(200,16,46,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .value-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+    .value-item h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* ==================== CTA FINAL ==================== */
+    #cta {
+      padding: 120px 5%;
+      background: linear-gradient(135deg, var(--black) 0%, var(--navy) 55%, #1A0510 100%);
+      text-align: center;
+    }
+    .cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .cta-title span { color: var(--red); }
+    .cta-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      margin-bottom: 44px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: var(--white);
+      padding: 18px 44px;
+      border-radius: 10px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      box-shadow: 0 6px 30px rgba(200,16,46,0.5);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      background: #a50d26;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(200,16,46,0.65);
+    }
+    .cta-email {
+      display: inline-block;
+      margin-top: 22px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-bottom: 1px solid rgba(200,16,46,0.3);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cta-email:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    /* ==================== FOOTER ==================== */
+    #footer {
+      background: var(--navy-deep);
+      padding: 70px 5% 30px;
+      border-top: 1px solid rgba(200,16,46,0.15);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 0 auto 50px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-desc {
+      font-size: 0.87rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a {
+      font-size: 0.87rem;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(160,168,184,0.6);
+    }
+
+    /* ==================== MODALS ==================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(6,15,30,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--navy-mid);
+      border-radius: 16px;
+      border: 1px solid rgba(200,16,46,0.2);
+      max-width: 700px;
+      width: 100%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .modal-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .modal-close {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.07);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray);
+      font-size: 1.2rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .modal-close:hover { background: rgba(200,16,46,0.2); color: var(--white); }
+    .modal-body {
+      padding: 28px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .modal-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--red);
+      margin: 20px 0 8px;
+    }
+    .modal-body h3:first-child { margin-top: 0; }
+    .modal-body p, .modal-body li {
+      font-size: 0.87rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .modal-body ul { padding-left: 18px; list-style: disc; }
+    .modal-body a { color: var(--red); }
+
+    /* ==================== COOKIE BANNER ==================== */
+    #cookie-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--navy-mid);
+      border: 1px solid rgba(200,16,46,0.25);
+      border-radius: 14px;
+      padding: 20px 24px;
+      max-width: 640px;
+      width: calc(100% - 40px);
+      z-index: 8000;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    #cookie-banner.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .cookie-text {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .cookie-text a { color: var(--red); }
+    .cookie-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cookie-btn {
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .cookie-accept {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cookie-accept:hover { background: #a50d26; }
+    .cookie-necessary {
+      background: rgba(255,255,255,0.08);
+      color: var(--gray-light);
+    }
+    .cookie-necessary:hover { background: rgba(255,255,255,0.14); }
+    .cookie-info {
+      background: transparent;
+      color: var(--gray);
+      border: 1px solid rgba(255,255,255,0.15) !important;
+    }
+    .cookie-info:hover { color: var(--white); border-color: rgba(255,255,255,0.35) !important; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { display: none; }
+      .process-line-wrap { display: none; }
+      .process-mobile { display: flex; }
+      .values-row { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .why-grid { grid-template-columns: 1fr; }
+      .myths-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-cards { gap: 24px; }
+      .values-row { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      #float-contact { bottom: 20px; right: 20px; width: 48px; height: 48px; }
+    }
+    @media (max-width: 480px) {
+      .values-row { grid-template-columns: 1fr 1fr; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+
+    /* ==================== GLITCH ==================== */
+    @keyframes glitch1 {
+      0%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+      20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+      40% { clip-path: inset(50% 0 30% 0); transform: translate(3px, 0); }
+      60% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 0); }
+      80% { clip-path: inset(10% 0 75% 0); transform: translate(2px, 0); }
+    }
+    @keyframes glitch2 {
+      0%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+      25% { clip-path: inset(40% 0 40% 0); transform: translate(3px, 0); }
+      50% { clip-path: inset(70% 0 15% 0); transform: translate(-3px, 0); }
+      75% { clip-path: inset(15% 0 70% 0); transform: translate(2px, 0); }
+    }
+    .hero-title-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title-glitch {
+      position: absolute;
+      inset: 0;
+      color: var(--red);
+      pointer-events: none;
+    }
+    .hero-title-glitch.g1 { animation: glitch1 0.4s steps(1) forwards; opacity: 0; }
+    .hero-title-glitch.g2 { animation: glitch2 0.4s steps(1) 0.15s forwards; opacity: 0; }
+
+    /* ==================== LOGO SPIN ==================== */
+    @keyframes logoSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .logo-spin { animation: logoSpin 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+    /* ==================== MISC ==================== */
+    .text-red { color: var(--red); }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--red);
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-outline"></div>
+
+  <!-- Floating Contact Button -->
+  <a id="float-contact" href="mailto:automatizacionestj@gmail.com" aria-label="Contactar por email">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+    </svg>
+  </a>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#hero">
+      <svg id="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Logo ATYX">
+        <!-- Octagonal knot: 8-pointed interlocking star -->
+        <g>
+          <!-- Outer 8 points -->
+          <polygon points="50,4 58,22 76,14 68,32 88,32 76,46 92,58 74,60 78,80 62,70 54,88 46,70 30,80 34,60 16,58 32,46 20,32 40,32 32,14 50,22" fill="none" stroke="#C8102E" stroke-width="5" stroke-linejoin="round"/>
+          <!-- Inner ring -->
+          <polygon points="50,22 56,34 70,28 64,42 78,46 66,52 70,66 58,62 54,76 46,62 34,66 38,52 26,46 40,42 34,28 48,34" fill="rgba(200,16,46,0.18)" stroke="#C8102E" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Center -->
+          <circle cx="50" cy="50" r="8" fill="#C8102E"/>
+        </g>
+      </svg>
+      <span class="nav-logo-text">ATYX</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#why">Por qué una Web</a></li>
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="mailto:automatizacionestj@gmail.com" class="nav-cta">Hablemos</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#hero" onclick="closeMobile()">Inicio</a>
+    <a href="#services" onclick="closeMobile()">Servicios</a>
+    <a href="#why" onclick="closeMobile()">Por qué una Web</a>
+    <a href="#about" onclick="closeMobile()">Nosotros</a>
+    <a href="mailto:automatizacionestj@gmail.com" class="mobile-cta">Hablemos</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-tag">Agencia de Marketing Digital</div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" id="hero-title">
+          <span class="word">Tu</span>&nbsp;
+          <span class="word">presencia</span>&nbsp;
+          <span class="word">digital.</span><br>
+          <span class="word accent">Redefinida.</span>
+        </h1>
+        <div class="hero-title-glitch g1" aria-hidden="true" id="glitch1">
+          <h1 class="hero-title" style="color:var(--red);">
+            Tu presencia digital.<br><span class="accent">Redefinida.</span>
+          </h1>
+        </div>
+        <div class="hero-title-glitch g2" aria-hidden="true" id="glitch2">
+          <h1 class="hero-title" style="color:var(--red);">
+            Tu presencia digital.<br><span class="accent">Redefinida.</span>
+          </h1>
+        </div>
+      </div>
+      <p class="hero-subtitle" id="hero-sub">
+        Creamos y gestionamos páginas web que convierten visitantes en clientes.
+        Tu negocio merece una presencia digital a la altura.
+      </p>
+      <div class="hero-buttons" id="hero-btns">
+        <a href="#services" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Nuestros servicios
+        </a>
+        <a href="#why" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"/></svg>
+          ¿Por qué una web?
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ==================== POR QUÉ UNA WEB ==================== -->
+  <section id="why">
+    <div class="why-header reveal">
+      <div class="section-tag">El valor de tu presencia digital</div>
+      <h2 class="section-title">¿Por qué necesitas<br>una <span class="text-red">página web</span>?</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="why-grid">
+      <!-- Card 1 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Presencia 24/7</h3>
+        <p>Tu negocio visible las 24 horas, los 7 días de la semana. Sin horarios, sin descansos. Siempre disponible para tus clientes.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Credibilidad profesional</h3>
+        <p>Los clientes confían más en empresas con web profesional. Una buena presencia digital proyecta seriedad y confianza desde el primer instante.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Captación de clientes</h3>
+        <p>Canal de ventas y contacto automatizado. Tu web trabaja para ti, generando oportunidades de negocio mientras tú te dedicas a lo que sabes hacer.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Posicionamiento SEO</h3>
+        <p>Aparecer en Google cuando te buscan. El SEO te coloca delante de clientes que ya están buscando lo que tú ofreces.</p>
+      </div>
+      <!-- Card 5 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Ventaja competitiva</h3>
+        <p>Diferénciate de quien no tiene web. Estar presente digitalmente cuando tu competencia no lo está supone una ventaja directa y tangible.</p>
+      </div>
+      <!-- Card 6 -->
+      <div class="why-card reveal">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Alcance ilimitado</h3>
+        <p>Llega a clientes más allá de tu zona geográfica. Internet no tiene fronteras: tu web puede atraer clientes de cualquier parte.</p>
+      </div>
+    </div>
+
+    <!-- Mitos -->
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h3 class="myths-title reveal">Las <span>objeciones más comunes</span>, desmontadas</h3>
+      <div class="myths-grid">
+        <div class="myth-card reveal">
+          <div class="myth-label">El mito</div>
+          <div class="myth-myth">Requiere una inversión inicial muy elevada</div>
+          <div class="reality-label">✓ La realidad</div>
+          <p class="myth-reality">Diseñamos soluciones adaptadas a tu presupuesto. Una web profesional es una inversión que se amortiza rápido gracias a los clientes que atrae.</p>
+        </div>
+        <div class="myth-card reveal">
+          <div class="myth-label">El mito</div>
+          <div class="myth-myth">Necesita mantenimiento constante</div>
+          <div class="reality-label">✓ La realidad</div>
+          <p class="myth-reality">Nos encargamos nosotros por ti. Tú te centras en gestionar tu negocio; nosotros nos ocupamos de que tu web siempre esté actualizada y funcionando.</p>
+        </div>
+        <div class="myth-card reveal">
+          <div class="myth-label">El mito</div>
+          <div class="myth-myth">Tarda mucho en posicionarse en Google</div>
+          <div class="reality-label">✓ La realidad</div>
+          <p class="myth-reality">Con la estrategia correcta de SEO, antes de lo que crees. Aplicamos técnicas probadas para acelerar tu visibilidad en buscadores desde el primer día.</p>
+        </div>
+        <div class="myth-card reveal">
+          <div class="myth-label">El mito</div>
+          <div class="myth-myth">Es complicado de gestionar para mí</div>
+          <div class="reality-label">✓ La realidad</div>
+          <p class="myth-reality">Tú te centras en tu negocio, nosotros en tu web. Te entregamos un panel sencillo y además te acompañamos siempre que lo necesites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICIOS ==================== -->
+  <section id="services">
+    <div class="services-header reveal">
+      <div class="section-tag">Lo que hacemos</div>
+      <h2 class="section-title">Nuestros <span class="text-red">servicios</span></h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Todo lo que tu negocio necesita para destacar en el mundo digital, bajo un mismo techo.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid" style="max-width:1100px;margin:0 auto;">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3>Diseño Web</h3>
+        <p>Páginas web a medida, únicas y optimizadas para cada negocio. Creamos experiencias digitales que impresionan y convierten desde el primer clic.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Gestión Web</h3>
+        <p>Mantenimiento y soporte continuo de tu página web. Actualizaciones, seguridad, copias de seguridad y mejoras constantes para que nunca te preocupes.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>SEO & Posicionamiento</h3>
+        <p>Aparecer en los primeros resultados de Google cuando tus clientes te buscan. Estrategia de palabras clave, optimización técnica y contenido de calidad.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Marketing Digital</h3>
+        <p>Estrategias integrales para atraer y convertir clientes online. Combinamos canales y técnicas para maximizar el retorno de cada euro invertido.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Landing Pages</h3>
+        <p>Páginas de aterrizaje de alto impacto diseñadas para campañas específicas. Máxima conversión, mensajes directos y llamadas a la acción irresistibles.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>Consultoría Digital</h3>
+        <p>Asesoramiento estratégico personalizado para tu presencia online. Analizamos tu sector, tu competencia y te trazamos el camino más eficiente hacia tus objetivos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROCESO ==================== -->
+  <section id="process">
+    <div class="process-header reveal">
+      <div class="section-tag">Cómo trabajamos</div>
+      <h2 class="section-title">Nuestro <span class="text-red">proceso</span></h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Un método claro, transparente y orientado a resultados.</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Desktop timeline -->
+    <div class="process-timeline" id="process-timeline">
+      <div class="process-line-wrap">
+        <div class="process-line-fill" id="process-line"></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-dot" id="sd1">
+            <div class="step-num">1</div>
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Reunión inicial</h3>
+            <p>Entendemos tu negocio, objetivos y necesidades</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot" id="sd2">
+            <div class="step-num">2</div>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Estrategia</h3>
+            <p>Planificamos la web ideal para ti</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot" id="sd3">
+            <div class="step-num">3</div>
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Diseño</h3>
+            <p>Creamos un diseño único y profesional</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot" id="sd4">
+            <div class="step-num">4</div>
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Desarrollo</h3>
+            <p>Construimos tu web con las mejores tecnologías</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot" id="sd5">
+            <div class="step-num">5</div>
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Lanzamiento</h3>
+            <p>Publicamos y optimizamos tu presencia online</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot" id="sd6">
+            <div class="step-num">6</div>
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="step-content">
+            <h3>Mantenimiento</h3>
+            <p>Cuidamos tu web para que siempre funcione perfectamente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile timeline -->
+    <div class="process-mobile" style="max-width:600px;margin:0 auto;padding:0 5%;">
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="step-text-mobile"><h3>1. Reunión inicial</h3><p>Entendemos tu negocio, objetivos y necesidades</p></div>
+      </div>
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="step-text-mobile"><h3>2. Estrategia</h3><p>Planificamos la web ideal para ti</p></div>
+      </div>
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div>
+        <div class="step-text-mobile"><h3>3. Diseño</h3><p>Creamos un diseño único y profesional</p></div>
+      </div>
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="step-text-mobile"><h3>4. Desarrollo</h3><p>Construimos tu web con las mejores tecnologías</p></div>
+      </div>
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="step-text-mobile"><h3>5. Lanzamiento</h3><p>Publicamos y optimizamos tu presencia online</p></div>
+      </div>
+      <div class="process-step-mobile reveal">
+        <div class="step-dot-mobile"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="step-text-mobile"><h3>6. Mantenimiento</h3><p>Cuidamos tu web para que siempre funcione perfectamente</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOSOTROS ==================== -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-header reveal">
+        <div class="section-tag">El equipo</div>
+        <h2 class="section-title">Somos <span class="text-red">Tomeu y Joel</span></h2>
+        <div class="divider"></div>
+      </div>
+      <p class="about-text reveal" style="text-align:center;">
+        Dos profesionales apasionados por el marketing digital y el diseño web. Fundamos ATYX con una misión clara: hacer que cualquier negocio, grande o pequeño, tenga una presencia digital que marque la diferencia. Cada proyecto lo tratamos como si fuera el nuestro propio.
+      </p>
+      <div class="team-cards">
+        <div class="team-card reveal">
+          <div class="team-avatar">T</div>
+          <div class="team-name">Tomeu</div>
+          <div class="team-role">Co-fundador · Estrategia Digital</div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">J</div>
+          <div class="team-name">Joel</div>
+          <div class="team-role">Co-fundador · Diseño y Desarrollo</div>
+        </div>
+      </div>
+      <div class="values-row">
+        <div class="value-item reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          </div>
+          <h4>Creatividad</h4>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h4>Transparencia</h4>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Resultados</h4>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4>Cercanía</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <section id="cta">
+    <div class="cta-inner reveal">
+      <div class="section-tag" style="display:inline-block;">El siguiente paso</div>
+      <h2 class="cta-title">¿Listo para llevar tu negocio<br>al <span>siguiente nivel</span>?</h2>
+      <p class="cta-sub">Cuéntanos tu proyecto. Estamos aquí para ayudarte a construir la presencia digital que tu negocio se merece.</p>
+      <a href="mailto:automatizacionestj@gmail.com" class="cta-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Escríbenos ahora
+      </a>
+      <br>
+      <a href="mailto:automatizacionestj@gmail.com" class="cta-email">automatizacionestj@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo" href="#hero">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+            <polygon points="50,4 58,22 76,14 68,32 88,32 76,46 92,58 74,60 78,80 62,70 54,88 46,70 30,80 34,60 16,58 32,46 20,32 40,32 32,14 50,22" fill="none" stroke="#C8102E" stroke-width="5" stroke-linejoin="round"/>
+            <polygon points="50,22 56,34 70,28 64,42 78,46 66,52 70,66 58,62 54,76 46,62 34,66 38,52 26,46 40,42 34,28 48,34" fill="rgba(200,16,46,0.18)" stroke="#C8102E" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="50" cy="50" r="8" fill="#C8102E"/>
+          </svg>
+          <span class="nav-logo-text">ATYX</span>
+        </a>
+        <p class="footer-desc">Agencia de marketing digital especializada en creación y gestión de páginas web profesionales que impulsan el crecimiento de tu negocio.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#why">Por qué una Web</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="mailto:automatizacionestj@gmail.com">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('modal-privacy'); return false;">Política de Privacidad</a></li>
+          <li><a href="#" onclick="openModal('modal-legal'); return false;">Aviso Legal</a></li>
+          <li><a href="#" onclick="openModal('modal-cookies'); return false;">Política de Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ATYX. Todos los derechos reservados. · <a href="mailto:automatizacionestj@gmail.com" style="color:var(--red);">automatizacionestj@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Privacy Modal -->
+  <div class="modal-overlay" id="modal-privacy">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Política de Privacidad</h2>
+        <button class="modal-close" onclick="closeModal('modal-privacy')">✕</button>
+      </div>
+      <div class="modal-body">
+        <h3>1. Responsable del tratamiento</h3>
+        <p><strong>ATYX</strong> — Tomeu y Joel<br>
+        NIF/CIF: [NIF/CIF en proceso de registro]<br>
+        Email de contacto: <a href="mailto:automatizacionestj@gmail.com">automatizacionestj@gmail.com</a></p>
+
+        <h3>2. Finalidad del tratamiento</h3>
+        <p>Los datos personales que nos facilites se utilizarán exclusivamente para:</p>
+        <ul>
+          <li>Gestión de consultas y solicitudes de información.</li>
+          <li>Comunicaciones comerciales sobre nuestros servicios, previa solicitud o consentimiento expreso.</li>
+        </ul>
+
+        <h3>3. Legitimación</h3>
+        <p>La base legal para el tratamiento de tus datos es el <strong>consentimiento del interesado</strong>, otorgado de forma libre, específica e inequívoca al contactar con nosotros.</p>
+
+        <h3>4. Conservación de los datos</h3>
+        <p>Conservaremos tus datos personales mientras dure la relación comercial o hasta que solicites su supresión o revocues el consentimiento prestado.</p>
+
+        <h3>5. Destinatarios</h3>
+        <p>No se cederán datos a terceros salvo obligación legal. No realizamos transferencias internacionales de datos.</p>
+
+        <h3>6. Derechos del usuario</h3>
+        <p>En cualquier momento puedes ejercer los siguientes derechos:</p>
+        <ul>
+          <li><strong>Acceso</strong> a tus datos personales.</li>
+          <li><strong>Rectificación</strong> de datos inexactos.</li>
+          <li><strong>Supresión</strong> ("derecho al olvido").</li>
+          <li><strong>Portabilidad</strong> de los datos.</li>
+          <li><strong>Oposición</strong> al tratamiento.</li>
+          <li><strong>Limitación</strong> del tratamiento.</li>
+        </ul>
+
+        <h3>7. Ejercicio de derechos</h3>
+        <p>Para ejercer cualquiera de estos derechos, envía un correo a <a href="mailto:automatizacionestj@gmail.com">automatizacionestj@gmail.com</a> indicando el derecho que deseas ejercer y adjuntando una copia de tu documento de identidad.</p>
+
+        <h3>8. Reclamaciones</h3>
+        <p>Si consideras que el tratamiento de tus datos no es adecuado, tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a></p>
+
+        <h3>9. Normativa aplicable</h3>
+        <p>El tratamiento de datos se realiza conforme al <strong>Reglamento General de Protección de Datos (RGPD) de la UE 2016/679</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal Modal -->
+  <div class="modal-overlay" id="modal-legal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Aviso Legal</h2>
+        <button class="modal-close" onclick="closeModal('modal-legal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <h3>1. Datos identificativos</h3>
+        <p>En cumplimiento de la <strong>Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE)</strong>, se informa:<br><br>
+        <strong>Titular:</strong> ATYX (Tomeu y Joel)<br>
+        <strong>NIF/CIF:</strong> [NIF/CIF en proceso de registro]<br>
+        <strong>Email de contacto:</strong> <a href="mailto:automatizacionestj@gmail.com">automatizacionestj@gmail.com</a></p>
+
+        <h3>2. Objeto</h3>
+        <p>El presente Aviso Legal regula las condiciones de uso del sitio web de ATYX, el acceso al mismo y su utilización. El acceso a este sitio web implica la aceptación plena de las presentes condiciones.</p>
+
+        <h3>3. Propiedad intelectual e industrial</h3>
+        <p>Todos los contenidos de este sitio web —incluyendo textos, imágenes, diseños, logotipos, código fuente y demás elementos— son propiedad exclusiva de ATYX o de sus legítimos titulares.</p>
+        <p>Queda <strong>expresamente prohibida</strong> la reproducción, distribución, transformación, comunicación pública o cualquier otra forma de explotación de dichos contenidos, total o parcial, sin la autorización expresa y por escrito de ATYX.</p>
+
+        <h3>4. Responsabilidad</h3>
+        <p>ATYX no se responsabiliza del uso indebido de los contenidos de este sitio web, ni de los posibles daños derivados del acceso o uso de la información en él contenida.</p>
+        <p>ATYX se reserva el derecho a modificar, suspender o interrumpir el acceso al sitio web sin previo aviso.</p>
+
+        <h3>5. Legislación aplicable y jurisdicción</h3>
+        <p>Las presentes condiciones se rigen por la <strong>legislación española</strong>. Para la resolución de cualquier controversia derivada del uso de este sitio web, las partes se someten a la jurisdicción de los <strong>Tribunales y Juzgados de España</strong>, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookies Modal -->
+  <div class="modal-overlay" id="modal-cookies">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Política de Cookies</h2>
+        <button class="modal-close" onclick="closeModal('modal-cookies')">✕</button>
+      </div>
+      <div class="modal-body">
+        <h3>1. ¿Qué son las cookies?</h3>
+        <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Permiten que el sitio recuerde tus acciones y preferencias durante un período de tiempo.</p>
+
+        <h3>2. Cookies que utilizamos</h3>
+        <p>Este sitio web utiliza <strong>únicamente cookies técnicas estrictamente necesarias</strong> para su correcto funcionamiento:</p>
+        <ul>
+          <li><strong>Cookie de consentimiento:</strong> Almacena tu preferencia sobre el uso de cookies para no mostrarte el banner de nuevo.</li>
+        </ul>
+        <p>No utilizamos cookies de análisis, publicidad, rastreo ni de terceros.</p>
+
+        <h3>3. Cookies de terceros</h3>
+        <p>Este sitio <strong>no instala cookies de terceros</strong> con fines publicitarios ni de seguimiento del comportamiento del usuario.</p>
+
+        <h3>4. ¿Cómo desactivar las cookies?</h3>
+        <p>Puedes desactivar o eliminar las cookies desde la configuración de tu navegador. A continuación te indicamos cómo hacerlo en los navegadores más comunes:</p>
+        <ul>
+          <li><strong>Google Chrome:</strong> Ajustes → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
+          <li><strong>Mozilla Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio.</li>
+          <li><strong>Safari:</strong> Preferencias → Privacidad → Gestión de datos de sitios web.</li>
+          <li><strong>Microsoft Edge:</strong> Configuración → Privacidad, búsqueda y servicios → Cookies.</li>
+        </ul>
+        <p>Ten en cuenta que deshabilitar las cookies técnicas puede afectar al correcto funcionamiento del sitio web.</p>
+
+        <h3>5. Normativa aplicable</h3>
+        <p>Esta política cumple con la normativa española sobre cookies establecida por la <strong>Agencia Española de Protección de Datos (AEPD)</strong> y la Directiva Europea 2009/136/CE (Directiva de Cookies).</p>
+
+        <h3>6. Actualizaciones</h3>
+        <p>ATYX se reserva el derecho a modificar esta política de cookies en cualquier momento para adaptarla a cambios legislativos o de funcionamiento del sitio web.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== COOKIE BANNER ==================== -->
+  <div id="cookie-banner">
+    <p class="cookie-text">
+      Utilizamos cookies técnicas necesarias para el funcionamiento del sitio web. No usamos cookies de rastreo ni publicidad.
+      <a href="#" onclick="openModal('modal-cookies'); return false;">Más información</a>
+    </p>
+    <div class="cookie-buttons">
+      <button class="cookie-btn cookie-accept" onclick="acceptCookies('all')">Aceptar todas</button>
+      <button class="cookie-btn cookie-necessary" onclick="acceptCookies('necessary')">Solo necesarias</button>
+      <button class="cookie-btn cookie-info" onclick="openModal('modal-cookies')">Más información</button>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+  (function() {
+    'use strict';
+
+    /* ==================== GSAP REGISTER ==================== */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ==================== PROGRESS BAR ==================== */
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }, { passive: true });
+
+    /* ==================== CUSTOM CURSOR ==================== */
+    const cursor = document.getElementById('cursor');
+    const cursorOutline = document.getElementById('cursor-outline');
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+
+    function animateOutline() {
+      outlineX += (mouseX - outlineX) * 0.12;
+      outlineY += (mouseY - outlineY) * 0.12;
+      cursorOutline.style.left = outlineX + 'px';
+      cursorOutline.style.top = outlineY + 'px';
+      requestAnimationFrame(animateOutline);
+    }
+    animateOutline();
+
+    const hoverTargets = 'a, button, .why-card, .service-card, .myth-card, .value-item, .team-card, .cta-btn, .cookie-btn, .nav-hamburger';
+    document.querySelectorAll(hoverTargets).forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    });
+
+    /* ==================== NAVBAR SCROLL ==================== */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ==================== MOBILE MENU ==================== */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    window.closeMobile = function() {
+      mobileMenu.classList.remove('open');
+    };
+
+    /* ==================== LOGO SPIN ON LOAD ==================== */
+    const logoSvg = document.getElementById('logo-svg');
+    logoSvg.classList.add('logo-spin');
+    logoSvg.addEventListener('animationend', () => logoSvg.classList.remove('logo-spin'));
+
+    /* ==================== HERO CANVAS PARTICLES ==================== */
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animFrameId;
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+
+    const PARTICLE_COUNT = 80;
+    const MAX_DIST = 140;
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.r = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(200,16,46,0.35)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    let mouseParticleX = -9999, mouseParticleY = -9999;
+    document.getElementById('hero').addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      mouseParticleX = e.clientX - rect.left;
+      mouseParticleY = e.clientY - rect.top;
+    });
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const alpha = (1 - dist / MAX_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(200,16,46,${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+        // Mouse interaction
+        const mdx = particles[i].x - mouseParticleX;
+        const mdy = particles[i].y - mouseParticleY;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (mdist < 160) {
+          const alpha = (1 - mdist / 160) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouseParticleX, mouseParticleY);
+          ctx.strokeStyle = `rgba(200,16,46,${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+      animFrameId = requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    /* ==================== HERO PARALLAX ==================== */
+    const heroContent = document.querySelector('.hero-content');
+    document.getElementById('hero').addEventListener('mousemove', e => {
+      const rect = document.getElementById('hero').getBoundingClientRect();
+      const cx = rect.width / 2, cy = rect.height / 2;
+      const dx = (e.clientX - rect.left - cx) / cx;
+      const dy = (e.clientY - rect.top - cy) / cy;
+      gsap.to(heroContent, {
+        x: dx * 10,
+        y: dy * 6,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
+    });
+
+    /* ==================== HERO ENTRANCE ANIMATION ==================== */
+    const tl = gsap.timeline({ delay: 0.3 });
+    tl.to('.hero-tag', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to('.word', { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out' }, '-=0.2')
+      .to('#hero-sub', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.3')
+      .to('#hero-btns', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+
+    // Glitch effect
+    setTimeout(() => {
+      const g1 = document.getElementById('glitch1');
+      const g2 = document.getElementById('glitch2');
+      g1.style.opacity = '1';
+      g2.style.opacity = '1';
+      setTimeout(() => { g1.style.opacity = '0'; g2.style.opacity = '0'; }, 600);
+    }, 1200);
+
+    /* ==================== SCROLL REVEAL ==================== */
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 45 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    });
+
+    /* ==================== PROCESS TIMELINE (desktop) ==================== */
+    const processLine = document.getElementById('process-line');
+    const stepDots = [
+      document.getElementById('sd1'),
+      document.getElementById('sd2'),
+      document.getElementById('sd3'),
+      document.getElementById('sd4'),
+      document.getElementById('sd5'),
+      document.getElementById('sd6'),
+    ];
+
+    ScrollTrigger.create({
+      trigger: '#process-timeline',
+      start: 'top 75%',
+      end: 'bottom 40%',
+      scrub: 1,
+      onUpdate: self => {
+        const p = self.progress;
+        if (processLine) processLine.style.width = (p * 100) + '%';
+        stepDots.forEach((dot, i) => {
+          if (dot) dot.classList.toggle('active', p > (i + 0.5) / 6);
+        });
+      }
+    });
+
+    /* ==================== MODALS ==================== */
+    window.openModal = function(id) {
+      const modal = document.getElementById(id);
+      if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    };
+    window.closeModal = function(id) {
+      const modal = document.getElementById(id);
+      if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
+    };
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+          m.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    /* ==================== COOKIE BANNER ==================== */
+    function showCookieBanner() {
+      if (!localStorage.getItem('atyx_cookies')) {
+        setTimeout(() => {
+          document.getElementById('cookie-banner').classList.add('visible');
+        }, 1500);
+      }
+    }
+    window.acceptCookies = function(type) {
+      localStorage.setItem('atyx_cookies', type);
+      const banner = document.getElementById('cookie-banner');
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(() => banner.remove(), 400);
+    };
+    showCookieBanner();
+
+    /* ==================== HERO TAG INITIAL STATE ==================== */
+    gsap.set('.hero-tag', { opacity: 0, y: 20 });
+
+  })();
+  </script>
+</body>
+</html>
