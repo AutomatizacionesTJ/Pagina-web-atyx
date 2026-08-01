@@ -243,9 +243,9 @@
     }
     .section-title {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 20px;
       color: var(--white);
     }
@@ -428,13 +428,13 @@
       box-shadow: 0 12px 40px rgba(200,16,46,0.12);
     }
     .why-card-icon {
-      width: 44px; height: 44px;
+      width: 56px; height: 56px;
       background: rgba(200,16,46,0.1);
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
-    .why-card-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+    .why-card-icon svg { width: 28px; height: 28px; stroke: var(--red); fill: none; stroke-width: 1.8; }
     .why-card h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1rem;
@@ -526,9 +526,9 @@
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      max-width: 1100px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .service-card {
@@ -548,31 +548,31 @@
       position: absolute;
       top: 16px; right: 20px;
       font-family: 'Outfit', sans-serif;
-      font-size: 5rem;
+      font-size: 7rem;
       font-weight: 800;
-      color: rgba(200,16,46,0.08);
+      color: rgba(200,16,46,0.07);
       line-height: 1;
       user-select: none;
     }
     .service-icon {
-      width: 50px; height: 50px;
+      width: 62px; height: 62px;
       background: rgba(200,16,46,0.1);
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
-    .service-icon svg { width: 26px; height: 26px; stroke: var(--red); fill: none; stroke-width: 1.7; }
+    .service-icon svg { width: 32px; height: 32px; stroke: var(--red); fill: none; stroke-width: 1.7; }
     .service-card h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.3rem;
       font-weight: 700;
       margin-bottom: 10px;
       color: var(--white);
     }
     .service-card p {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--gray);
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     /* ==================== PROCESO ==================== */
@@ -1035,7 +1035,7 @@
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
       .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
       .process-steps { display: none; }
       .process-line-wrap { display: none; }
       .process-mobile { display: flex; }
@@ -1201,7 +1201,7 @@
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Presencia 24/7</h3>
-        <p>Tu negocio visible las 24 horas, los 7 días de la semana. Sin horarios, sin descansos. Siempre disponible para tus clientes.</p>
+        <p>Tu negocio visible en todo momento, sin horarios ni descansos.</p>
       </div>
       <!-- Card 2 -->
       <div class="why-card reveal">
@@ -1209,7 +1209,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Credibilidad profesional</h3>
-        <p>Los clientes confían más en empresas con web profesional. Una buena presencia digital proyecta seriedad y confianza desde el primer instante.</p>
+        <p>Una web profesional proyecta confianza desde el primer instante.</p>
       </div>
       <!-- Card 3 -->
       <div class="why-card reveal">
@@ -1217,7 +1217,7 @@
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Captación de clientes</h3>
-        <p>Canal de ventas y contacto automatizado. Tu web trabaja para ti, generando oportunidades de negocio mientras tú te dedicas a lo que sabes hacer.</p>
+        <p>Tu web trabaja por ti, generando oportunidades las 24h.</p>
       </div>
       <!-- Card 4 -->
       <div class="why-card reveal">
@@ -1225,7 +1225,7 @@
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
         <h3>Posicionamiento SEO</h3>
-        <p>Aparecer en Google cuando te buscan. El SEO te coloca delante de clientes que ya están buscando lo que tú ofreces.</p>
+        <p>Aparece en Google cuando alguien busca lo que tú ofreces.</p>
       </div>
       <!-- Card 5 -->
       <div class="why-card reveal">
@@ -1233,7 +1233,7 @@
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
         <h3>Ventaja competitiva</h3>
-        <p>Diferénciate de quien no tiene web. Estar presente digitalmente cuando tu competencia no lo está supone una ventaja directa y tangible.</p>
+        <p>Diferénciate de quienes aún no tienen presencia digital.</p>
       </div>
       <!-- Card 6 -->
       <div class="why-card reveal">
@@ -1241,7 +1241,7 @@
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
         <h3>Alcance ilimitado</h3>
-        <p>Llega a clientes más allá de tu zona geográfica. Internet no tiene fronteras: tu web puede atraer clientes de cualquier parte.</p>
+        <p>Llega a clientes más allá de tu zona geográfica.</p>
       </div>
     </div>
 
@@ -1291,42 +1291,42 @@
           <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
         <h3>Resultados inmediatos</h3>
-        <p>Aparece en la primera página de Google desde el primer día. Sin esperar meses de SEO: tráfico cualificado desde que activas la campaña.</p>
+        <p>En la primera página de Google desde el primer día.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-card-icon">
           <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
         <h3>Solo pagas por resultados</h3>
-        <p>Modelo de coste por clic (CPC). Pagas únicamente cuando alguien interesado hace clic en tu anuncio, no por impresiones vacías.</p>
+        <p>Pagas únicamente cuando alguien hace clic en tu anuncio.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-card-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
         </div>
         <h3>Segmentación precisa</h3>
-        <p>Llega exactamente a quien busca lo que ofreces. Ubicación, horario, dispositivo e intención de búsqueda: tu anuncio, delante de tu cliente ideal.</p>
+        <p>Tu anuncio delante de quien busca exactamente lo que ofreces.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-card-icon">
           <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
         <h3>Control total del presupuesto</h3>
-        <p>Tú decides cuánto invertir cada día. Escala o reduce la inversión en cualquier momento según los resultados que estés obteniendo.</p>
+        <p>Tú decides cuánto invertir. Ajusta la campaña cuando quieras.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-card-icon">
           <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
         <h3>Datos medibles al instante</h3>
-        <p>Cada clic, cada conversión, cada euro invertido. Sabrás exactamente qué funciona y podrás optimizar la campaña en tiempo real.</p>
+        <p>Sabrás exactamente qué funciona y optimizarás en tiempo real.</p>
       </div>
       <div class="why-card reveal">
         <div class="why-card-icon">
           <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
         <h3>Ventaja frente a la competencia</h3>
-        <p>Ocupa el espacio publicitario antes que tu competencia. Mientras ellos esperan posicionar de forma orgánica, tú ya estás captando clientes.</p>
+        <p>Capta clientes mientras tu competencia espera posicionar.</p>
       </div>
     </div>
 
@@ -1370,54 +1370,38 @@
       <p class="section-subtitle" style="margin: 0 auto;">Todo lo que tu negocio necesita para destacar en el mundo digital, bajo un mismo techo.</p>
       <div class="divider"></div>
     </div>
-    <div class="services-grid" style="max-width:1100px;margin:0 auto;">
+    <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-num">01</div>
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
         </div>
-        <h3>Diseño Web</h3>
-        <p>Páginas web a medida, únicas y optimizadas para cada negocio. Creamos experiencias digitales que impresionan y convierten desde el primer clic.</p>
+        <h3>Diseño y Gestión Web</h3>
+        <p>Webs a medida, siempre actualizadas y funcionando.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-num">02</div>
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
-        <h3>Gestión Web</h3>
-        <p>Mantenimiento y soporte continuo de tu página web. Actualizaciones, seguridad, copias de seguridad y mejoras constantes para que nunca te preocupes.</p>
+        <h3>SEO & Posicionamiento</h3>
+        <p>Aparece el primero cuando te buscan en Google.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-num">03</div>
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
         </div>
-        <h3>SEO & Posicionamiento</h3>
-        <p>Aparecer en los primeros resultados de Google cuando tus clientes te buscan. Estrategia de palabras clave, optimización técnica y contenido de calidad.</p>
+        <h3>Google Ads</h3>
+        <p>Resultados desde el primer día con publicidad en Google.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-num">04</div>
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Marketing Digital</h3>
-        <p>Estrategias integrales para atraer y convertir clientes online. Combinamos canales y técnicas para maximizar el retorno de cada euro invertido.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">05</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3>Landing Pages</h3>
-        <p>Páginas de aterrizaje de alto impacto diseñadas para campañas específicas. Máxima conversión, mensajes directos y llamadas a la acción irresistibles.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">06</div>
-        <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
         <h3>Consultoría Digital</h3>
-        <p>Asesoramiento estratégico personalizado para tu presencia online. Analizamos tu sector, tu competencia y te trazamos el camino más eficiente hacia tus objetivos.</p>
+        <p>Asesoramiento estratégico para crecer online.</p>
       </div>
     </div>
   </section>
