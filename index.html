@@ -414,20 +414,6 @@
       background: var(--navy);
       padding: 100px 5%;
     }
-    /* ==================== POR QUÉ — ADS ==================== */
-    #why-ads {
-      background: var(--navy-deep);
-      padding: 100px 5%;
-      position: relative;
-      border-top: 1px solid rgba(99,179,237,0.06);
-    }
-    #why-ads::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 75% 40%, rgba(99,179,237,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
     /* Shared section header */
     .why-section-header {
       text-align: center;
@@ -501,9 +487,9 @@
     }
     .why-mini-card:hover .why-mini-card-icon { background: rgba(200,16,46,0.18); }
     .why-mini-card-icon svg { width: 36px; height: 36px; fill: none; stroke: var(--red); stroke-width: 1.6; }
-    #why-ads .why-mini-card-icon { background: rgba(99,179,237,0.08); }
-    #why-ads .why-mini-card:hover .why-mini-card-icon { background: rgba(99,179,237,0.18); }
-    #why-ads .why-mini-card-icon svg { stroke: #63B3ED; }
+    .ads-grid .why-mini-card-icon { background: rgba(99,179,237,0.08); }
+    .ads-grid .why-mini-card:hover .why-mini-card-icon { background: rgba(99,179,237,0.18); }
+    .ads-grid .why-mini-card-icon svg { stroke: #63B3ED; }
     .why-mini-card h4 {
       font-family: 'Outfit', sans-serif;
       font-size: 1rem;
@@ -536,12 +522,40 @@
       opacity: 1;
       transform: translateX(-50%) scale(1);
     }
-    /* Myths block wrapper */
-    .why-myths-block {
-      max-width: 900px;
-      margin: 0 auto;
+    /* ==================== WHY TABS ==================== */
+    .why-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 52px;
     }
-    /* Mitos */
+    .why-tab {
+      padding: 10px 28px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--gray);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .why-tab.active[data-target="web"] {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+    .why-tab.active[data-target="ads"] {
+      background: #63B3ED;
+      border-color: #63B3ED;
+      color: var(--navy-deep);
+    }
+    .why-tab:hover:not(.active) {
+      border-color: rgba(255,255,255,0.3);
+      color: var(--white);
+    }
+    /* Myths title reused in FAQ panels */
     .myths-title {
       font-family: 'Outfit', sans-serif;
       font-size: clamp(1.4rem, 2.8vw, 1.9rem);
@@ -551,59 +565,55 @@
       color: var(--white);
     }
     .myths-title span { color: var(--red); }
-    .myths-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    /* FAQ Accordion */
+    .why-faq {
+      max-width: 820px;
+      margin: 0 auto;
     }
-    .myth-card {
-      background: var(--navy-mid);
-      border-radius: 14px;
-      padding: 26px 24px;
-      border-left: 3px solid var(--red);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .faq-list {
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
-    .myth-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(200,16,46,0.1);
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .myth-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 8px;
-    }
-    .myth-myth {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.93rem;
-      font-weight: 600;
+    .faq-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 4px;
+      background: transparent;
+      border: none;
       color: var(--gray-light);
-      margin-bottom: 12px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: relative;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      gap: 16px;
+      transition: color 0.2s;
     }
-    .myth-myth::before {
-      content: '"';
-      color: rgba(200,16,46,0.35);
-      font-size: 2rem;
-      position: absolute;
-      top: -10px; left: -6px;
+    .faq-btn:hover { color: var(--white); }
+    .faq-icon {
+      font-size: 1.3rem;
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--red);
+      line-height: 1;
     }
-    .reality-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #4CAF50;
-      margin-bottom: 6px;
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-list--ads .faq-icon { color: #63B3ED; }
+    .faq-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
     }
-    .myth-reality {
-      font-size: 0.86rem;
+    .faq-body p {
+      padding: 0 4px 18px;
+      font-size: 0.9rem;
       color: var(--gray);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ==================== COMBO ==================== */
@@ -1240,7 +1250,6 @@
     @media (max-width: 1024px) {
       .why-cards-grid { grid-template-columns: repeat(2, 1fr); }
       .combo-cards { grid-template-columns: repeat(2, 1fr); }
-      .myths-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
       .process-steps { display: none; }
       .process-line-wrap { display: none; }
@@ -1254,7 +1263,6 @@
       .nav-hamburger { display: flex; }
       .why-cards-grid { grid-template-columns: 1fr; }
       .why-stat { flex-direction: column; }
-      .myths-grid { grid-template-columns: 1fr; }
       .combo-cards { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .team-cards { gap: 24px; }
