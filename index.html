@@ -486,49 +486,55 @@
       margin: 0 auto 70px;
     }
     .why-mini-card {
-      background: rgba(13,31,60,0.65);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 28px 24px;
-      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
-      overflow: hidden;
+      padding: 28px 16px 20px;
+      text-align: center;
+      cursor: default;
     }
-    .why-mini-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--red);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .why-mini-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(200,16,46,0.12); }
-    .why-mini-card:hover::after { transform: scaleX(1); }
-    #why-ads .why-mini-card::after { background: #63B3ED; }
-    #why-ads .why-mini-card:hover { box-shadow: 0 14px 40px rgba(99,179,237,0.1); }
-    #why-ads .why-mini-card-icon { background: rgba(99,179,237,0.1); }
-    #why-ads .why-mini-card-icon svg { stroke: #63B3ED; }
     .why-mini-card-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(200,16,46,0.1);
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(200,16,46,0.08);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
+      margin: 0 auto 14px;
+      transition: background 0.3s;
     }
-    .why-mini-card-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--red); stroke-width: 1.8; }
+    .why-mini-card:hover .why-mini-card-icon { background: rgba(200,16,46,0.18); }
+    .why-mini-card-icon svg { width: 36px; height: 36px; fill: none; stroke: var(--red); stroke-width: 1.6; }
+    #why-ads .why-mini-card-icon { background: rgba(99,179,237,0.08); }
+    #why-ads .why-mini-card:hover .why-mini-card-icon { background: rgba(99,179,237,0.18); }
+    #why-ads .why-mini-card-icon svg { stroke: #63B3ED; }
     .why-mini-card h4 {
       font-family: 'Outfit', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 6px;
     }
-    .why-mini-card p {
-      font-size: 0.84rem;
-      color: var(--gray);
-      line-height: 1.55;
+    /* Tooltip */
+    .why-mini-card-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) scale(0.95);
+      background: rgba(6,15,30,0.96);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px 14px;
+      width: max-content;
+      max-width: 220px;
+      font-size: 0.82rem;
+      color: var(--gray-light);
+      line-height: 1.5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+      z-index: 10;
+      text-align: left;
+    }
+    .why-mini-card:hover .why-mini-card-tooltip,
+    .why-mini-card.tooltip-open .why-mini-card-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
     }
     /* Myths block wrapper */
     .why-myths-block {
@@ -1583,32 +1589,32 @@
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h4>Presencia 24/7</h4>
-        <p>Visible siempre, sin horarios ni descansos.</p>
+        <div class="why-mini-card-tooltip">Visible siempre, sin horarios ni descansos.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h4>Credibilidad</h4>
-        <p>Proyecta seriedad desde el primer clic.</p>
+        <div class="why-mini-card-tooltip">Proyecta seriedad desde el primer clic.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="21" x2="23" y2="19"/><line x1="19" y1="15" x2="19" y2="21"/></svg></div>
         <h4>Captación automática</h4>
-        <p>Tu web trabaja y genera clientes por ti.</p>
+        <div class="why-mini-card-tooltip">Tu web trabaja y genera clientes por ti.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h4>SEO</h4>
-        <p>Apareces cuando ya te están buscando.</p>
+        <div class="why-mini-card-tooltip">Apareces cuando ya te están buscando.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h4>Ventaja competitiva</h4>
-        <p>Destaca frente a quien no tiene web.</p>
+        <div class="why-mini-card-tooltip">Destaca frente a quien no tiene web.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h4>Alcance ilimitado</h4>
-        <p>Clientes más allá de tu zona geográfica.</p>
+        <div class="why-mini-card-tooltip">Clientes más allá de tu zona geográfica.</div>
       </div>
     </div>
 
@@ -1663,32 +1669,32 @@
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h4>Resultados inmediatos</h4>
-        <p>Arriba en Google desde el primer día.</p>
+        <div class="why-mini-card-tooltip">Arriba en Google desde el primer día.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h4>Pagas por resultados</h4>
-        <p>Solo pagas cuando alguien hace clic.</p>
+        <div class="why-mini-card-tooltip">Solo pagas cuando alguien hace clic.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
         <h4>Segmentación precisa</h4>
-        <p>Delante de quien ya busca lo tuyo.</p>
+        <div class="why-mini-card-tooltip">Delante de quien ya busca lo tuyo.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
         <h4>Control total</h4>
-        <p>Tú decides cuánto invertir cada día.</p>
+        <div class="why-mini-card-tooltip">Tú decides cuánto invertir cada día.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h4>Datos en tiempo real</h4>
-        <p>Sabes exactamente qué funciona.</p>
+        <div class="why-mini-card-tooltip">Sabes exactamente qué funciona.</div>
       </div>
       <div class="why-mini-card reveal">
         <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h4>Ventaja frente a la competencia</h4>
-        <p>Ocupa el espacio antes que ellos.</p>
+        <div class="why-mini-card-tooltip">Ocupa el espacio antes que ellos.</div>
       </div>
     </div>
 
@@ -2055,6 +2061,26 @@
   <script>
   (function() {
     'use strict';
+
+    /* ==================== SCROLL TO TOP ON LOAD ==================== */
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
+    /* ==================== TOOLTIP MOBILE TOGGLE ==================== */
+    document.addEventListener('DOMContentLoaded', function() {
+      var cards = document.querySelectorAll('.why-mini-card');
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          var isOpen = card.classList.contains('tooltip-open');
+          cards.forEach(function(c) { c.classList.remove('tooltip-open'); });
+          if (!isOpen) card.classList.add('tooltip-open');
+          e.stopPropagation();
+        });
+      });
+      document.addEventListener('click', function() {
+        cards.forEach(function(c) { c.classList.remove('tooltip-open'); });
+      });
+    });
 
     /* ==================== GSAP REGISTER ==================== */
     gsap.registerPlugin(ScrollTrigger);
