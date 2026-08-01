@@ -1347,7 +1347,7 @@
       <li><a href="#hero">Inicio</a></li>
       <li><a href="#services">Servicios</a></li>
       <li><a href="#why">Página web</a></li>
-      <li><a href="#why-ads">Google Ads</a></li>
+      <li><a href="#why" data-tab="ads">Google Ads</a></li>
       <li><a href="#about">Quienes somos</a></li>
       <li><a href="mailto:automatizacionestj@gmail.com" class="nav-cta">Hablemos</a></li>
     </ul>
@@ -1361,7 +1361,7 @@
     <a href="#hero" onclick="closeMobile()">Inicio</a>
     <a href="#services" onclick="closeMobile()">Servicios</a>
     <a href="#why" onclick="closeMobile()">Página web</a>
-    <a href="#why-ads" onclick="closeMobile()">Google Ads</a>
+    <a href="#why" data-tab="ads" onclick="closeMobile()">Google Ads</a>
     <a href="#about" onclick="closeMobile()">Quienes somos</a>
     <a href="mailto:automatizacionestj@gmail.com" class="mobile-cta">Hablemos</a>
   </div>
@@ -1572,161 +1572,178 @@
     </div>
   </section>
 
-  <!-- ==================== POR QUÉ — PÁGINA WEB ==================== -->
+  <!-- ==================== POR QUÉ ==================== -->
   <section id="why">
-    <div class="why-section-header reveal">
-      <div class="section-tag">El valor de tu presencia digital</div>
-      <h2 class="section-title">¿Por qué necesitas una <span class="text-red">página web</span>?</h2>
-      <div class="divider"></div>
+    <!-- TAB SWITCHER -->
+    <div class="why-tabs reveal">
+      <button class="why-tab active" data-target="web">Página Web</button>
+      <button class="why-tab" data-target="ads">Google Ads</button>
     </div>
 
-    <!-- DATO DESTACADO -->
-    <!-- TODO: verificar dato/fuente antes de publicar -->
-    <div class="why-stat reveal">
-      <div class="why-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+    <!-- PANEL: PÁGINA WEB -->
+    <div class="why-tab-panel" data-tab="web">
+      <div class="why-section-header reveal">
+        <div class="section-tag">El valor de tu presencia digital</div>
+        <h2 class="section-title">¿Por qué necesitas una <span class="text-red">página web</span>?</h2>
+        <div class="divider"></div>
       </div>
-      <div>
-        <p class="why-stat-text">"Más del 80% de los consumidores investiga una empresa online antes de contactar. Sin web, directamente no existes para ese cliente."</p>
-        <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
-      </div>
-    </div>
-
-    <!-- 6 TARJETAS -->
-    <div class="why-cards-grid">
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h4>Presencia 24/7</h4>
-        <div class="why-mini-card-tooltip">Visible siempre, sin horarios ni descansos.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h4>Credibilidad</h4>
-        <div class="why-mini-card-tooltip">Proyecta seriedad desde el primer clic.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="21" x2="23" y2="19"/><line x1="19" y1="15" x2="19" y2="21"/></svg></div>
-        <h4>Captación automática</h4>
-        <div class="why-mini-card-tooltip">Tu web trabaja y genera clientes por ti.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h4>SEO</h4>
-        <div class="why-mini-card-tooltip">Apareces cuando ya te están buscando.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h4>Ventaja competitiva</h4>
-        <div class="why-mini-card-tooltip">Destaca frente a quien no tiene web.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h4>Alcance ilimitado</h4>
-        <div class="why-mini-card-tooltip">Clientes más allá de tu zona geográfica.</div>
-      </div>
-    </div>
-
-    <!-- MITOS WEB -->
-    <div class="why-myths-block reveal">
-      <h3 class="myths-title">Las <span>dudas más comunes</span>, resueltas</h3>
-      <div class="myths-grid">
-        <div class="myth-card">
-          <div class="myth-label">El mito</div>
-          <div class="myth-myth">Una web es muy cara para mi negocio</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">Adaptamos el proyecto a tu presupuesto. Una web bien hecha se amortiza con los primeros clientes que genera.</p>
+      <!-- TODO: verificar dato/fuente antes de publicar -->
+      <div class="why-stat reveal">
+        <div class="why-stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
-        <div class="myth-card">
-          <div class="myth-label">El mito</div>
-          <div class="myth-myth">Con redes sociales ya tengo suficiente</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">Las redes son temporales. Tu web es tu propiedad: nadie te la puede cerrar ni cambiar las reglas de visibilidad.</p>
-        </div>
-        <div class="myth-card">
-          <div class="myth-label">El mito</div>
-          <div class="myth-myth">No sé si mis clientes usan internet</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">La mayoría busca en Google antes de llamar. Si no apareces, simplemente no existes para ese cliente.</p>
+        <div>
+          <p class="why-stat-text">"Más del 80% de los consumidores investiga una empresa online antes de contactar. Sin web, directamente no existes para ese cliente."</p>
+          <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== POR QUÉ — GOOGLE ADS ==================== -->
-  <section id="why-ads">
-    <div class="why-section-header reveal">
-      <div class="section-tag">Visibilidad inmediata en Google</div>
-      <h2 class="section-title">¿Por qué necesitas <span style="color:#63B3ED;">Google Ads</span>?</h2>
-      <div class="divider" style="background:#63B3ED;"></div>
-    </div>
-
-    <!-- DATO DESTACADO ADS -->
-    <!-- TODO: verificar dato/fuente antes de publicar -->
-    <div class="why-stat ads-stat reveal">
-      <div class="why-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-      </div>
-      <div>
-        <p class="why-stat-text">"Los anuncios en la parte superior de Google reciben la mayoría de los clics de búsqueda. Si no estás ahí, tu competencia sí lo está."</p>
-        <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
-      </div>
-    </div>
-
-    <!-- 6 TARJETAS ADS -->
-    <div class="why-cards-grid">
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h4>Resultados inmediatos</h4>
-        <div class="why-mini-card-tooltip">Arriba en Google desde el primer día.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h4>Pagas por resultados</h4>
-        <div class="why-mini-card-tooltip">Solo pagas cuando alguien hace clic.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-        <h4>Segmentación precisa</h4>
-        <div class="why-mini-card-tooltip">Delante de quien ya busca lo tuyo.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h4>Control total</h4>
-        <div class="why-mini-card-tooltip">Tú decides cuánto invertir cada día.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h4>Datos en tiempo real</h4>
-        <div class="why-mini-card-tooltip">Sabes exactamente qué funciona.</div>
-      </div>
-      <div class="why-mini-card reveal">
-        <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>Ventaja frente a la competencia</h4>
-        <div class="why-mini-card-tooltip">Ocupa el espacio antes que ellos.</div>
-      </div>
-    </div>
-
-    <!-- MITOS ADS -->
-    <div class="why-myths-block reveal">
-      <h3 class="myths-title">Lo que se dice de Google Ads, <span>desmontado</span></h3>
-      <div class="myths-grid">
-        <div class="myth-card" style="border-left-color:#63B3ED;">
-          <div class="myth-label" style="color:#63B3ED;">El mito</div>
-          <div class="myth-myth">Google Ads es solo para grandes empresas</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">Puedes empezar con un presupuesto pequeño y escalarlo cuando veas resultados. El tamaño no importa, la estrategia sí.</p>
+      <div class="why-cards-grid">
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4>Presencia 24/7</h4>
+          <div class="why-mini-card-tooltip">Visible siempre, sin horarios ni descansos.</div>
         </div>
-        <div class="myth-card" style="border-left-color:#63B3ED;">
-          <div class="myth-label" style="color:#63B3ED;">El mito</div>
-          <div class="myth-myth">Es muy complicado y no lo entenderé</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">Nosotros gestionamos todo por ti y te explicamos los resultados en un lenguaje claro, sin tecnicismos.</p>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Credibilidad</h4>
+          <div class="why-mini-card-tooltip">Proyecta seriedad desde el primer clic.</div>
         </div>
-        <div class="myth-card" style="border-left-color:#63B3ED;">
-          <div class="myth-label" style="color:#63B3ED;">El mito</div>
-          <div class="myth-myth">Si paro los anuncios, pierdo todo</div>
-          <div class="reality-label">✓ La realidad</div>
-          <p class="myth-reality">Los Ads generan tráfico mientras están activos. Combinados con SEO, aseguras visibilidad a largo plazo incluso si pausas las campañas.</p>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="21" x2="23" y2="19"/><line x1="19" y1="15" x2="19" y2="21"/></svg></div>
+          <h4>Captación automática</h4>
+          <div class="why-mini-card-tooltip">Tu web trabaja y genera clientes por ti.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h4>SEO</h4>
+          <div class="why-mini-card-tooltip">Apareces cuando ya te están buscando.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4>Ventaja competitiva</h4>
+          <div class="why-mini-card-tooltip">Destaca frente a quien no tiene web.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h4>Alcance ilimitado</h4>
+          <div class="why-mini-card-tooltip">Clientes más allá de tu zona geográfica.</div>
+        </div>
+      </div>
+      <!-- FAQ ACORDEÓN WEB -->
+      <div class="why-faq reveal">
+        <h3 class="myths-title">Las <span>dudas más comunes</span>, resueltas</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>Una web es muy cara para mi negocio</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Adaptamos el proyecto a tu presupuesto. Una web bien hecha se amortiza con los primeros clientes que genera.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>Con redes sociales ya tengo suficiente</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Las redes son temporales. Tu web es tu propiedad: nadie te la puede cerrar ni cambiar las reglas de visibilidad.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>No sé si mis clientes usan internet</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>La mayoría busca en Google antes de llamar. Si no apareces, simplemente no existes para ese cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: GOOGLE ADS -->
+    <div class="why-tab-panel" data-tab="ads" style="display:none;">
+      <div class="why-section-header reveal">
+        <div class="section-tag">Visibilidad inmediata en Google</div>
+        <h2 class="section-title">¿Por qué necesitas <span style="color:#63B3ED;">Google Ads</span>?</h2>
+        <div class="divider" style="background:#63B3ED;"></div>
+      </div>
+      <!-- TODO: verificar dato/fuente antes de publicar -->
+      <div class="why-stat ads-stat reveal">
+        <div class="why-stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div>
+          <p class="why-stat-text">"Los anuncios en la parte superior de Google reciben la mayoría de los clics de búsqueda. Si no estás ahí, tu competencia sí lo está."</p>
+          <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
+        </div>
+      </div>
+      <div class="why-cards-grid ads-grid">
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h4>Resultados inmediatos</h4>
+          <div class="why-mini-card-tooltip">Arriba en Google desde el primer día.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h4>Pagas por resultados</h4>
+          <div class="why-mini-card-tooltip">Solo pagas cuando alguien hace clic.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <h4>Segmentación precisa</h4>
+          <div class="why-mini-card-tooltip">Delante de quien ya busca lo tuyo.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h4>Control total</h4>
+          <div class="why-mini-card-tooltip">Tú decides cuánto invertir cada día.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h4>Datos en tiempo real</h4>
+          <div class="why-mini-card-tooltip">Sabes exactamente qué funciona.</div>
+        </div>
+        <div class="why-mini-card reveal">
+          <div class="why-mini-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>Ventaja frente a la competencia</h4>
+          <div class="why-mini-card-tooltip">Ocupa el espacio antes que ellos.</div>
+        </div>
+      </div>
+      <!-- FAQ ACORDEÓN ADS -->
+      <div class="why-faq reveal">
+        <h3 class="myths-title">Lo que se dice de Google Ads, <span style="color:#63B3ED;">desmontado</span></h3>
+        <div class="faq-list faq-list--ads">
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>Google Ads es solo para grandes empresas</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Puedes empezar con un presupuesto pequeño y escalarlo cuando veas resultados. El tamaño no importa, la estrategia sí.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>Es muy complicado y no lo entenderé</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Nosotros gestionamos todo por ti y te explicamos los resultados en un lenguaje claro, sin tecnicismos.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">
+              <span>Si paro los anuncios, pierdo todo</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Los Ads generan tráfico mientras están activos. Combinados con SEO, aseguras visibilidad a largo plazo incluso si pausas las campañas.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1898,7 +1915,7 @@
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#why">Página web</a></li>
-          <li><a href="#why-ads">Google Ads</a></li>
+          <li><a href="#why" data-tab="ads">Google Ads</a></li>
           <li><a href="#about">Quienes somos</a></li>
           <li><a href="mailto:automatizacionestj@gmail.com">Contacto</a></li>
         </ul>
@@ -2091,6 +2108,50 @@
       });
       document.addEventListener('click', function() {
         cards.forEach(function(c) { c.classList.remove('tooltip-open'); });
+      });
+    });
+
+    /* ==================== WHY TABS ==================== */
+    document.addEventListener('DOMContentLoaded', function() {
+      var tabs = document.querySelectorAll('.why-tab');
+      var panels = document.querySelectorAll('.why-tab-panel');
+
+      function activateTab(target) {
+        tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.target === target); });
+        panels.forEach(function(p) { p.style.display = p.dataset.tab === target ? '' : 'none'; });
+      }
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() { activateTab(tab.dataset.target); });
+      });
+
+      // Nav links with data-tab attribute activate the right panel
+      document.querySelectorAll('a[data-tab]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          var target = link.dataset.tab;
+          setTimeout(function() { activateTab(target); }, 50);
+        });
+      });
+    });
+
+    /* ==================== FAQ ACCORDION ==================== */
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.parentElement;
+          var list = item.parentElement;
+          var body = item.querySelector('.faq-body');
+          var isOpen = item.classList.contains('open');
+          // Close all in same list
+          list.querySelectorAll('.faq-item').forEach(function(i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-body').style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
       });
     });
 
