@@ -25,8 +25,7 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(to bottom, #002B5B 0%, #1E5A9C 25%, #3E8FD6 50%, #7FC4F2 75%, #BFE3FA 100%);
-      background-attachment: fixed;
+      background: #0A0A0A;
       color: #FFFFFF;
       overflow-x: hidden;
       cursor: none;
@@ -47,71 +46,6 @@
       --white: #FFFFFF;
       --gray: #A0A8B8;
       --gray-light: #D0D5DF;
-    }
-
-    /* ==================== GRADIENT CONTRAST HELPERS ==================== */
-    /* Cards and UI elements stay opaque so they read against any part of the gradient */
-    .service-card,
-    .combo-card,
-    .value-item,
-    .step-dot,
-    .step-dot-mobile,
-    .combo-disclaimer {
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
-    /* Section titles get a subtle shadow so they stay legible on lighter parts of the gradient */
-    .section-title,
-    .section-subtitle,
-    .section-tag,
-    .hero-title,
-    .hero-sub,
-    .cta-title,
-    .cta-sub,
-    .process-header h2,
-    .combo-header h2,
-    .about-header h2,
-    .services-header h2,
-    .combo-cta h3,
-    .step-content h3,
-    .step-content p,
-    .step-text-mobile h3,
-    .step-text-mobile p,
-    .about-text,
-    .team-name,
-    .team-role,
-    .value-item h4,
-    .combo-card h3,
-    .combo-card p,
-    .combo-list li,
-    .combo-disclaimer,
-    .service-card h3,
-    .service-card p,
-    footer * {
-      text-shadow: 0 1px 6px rgba(0,0,0,0.55);
-    }
-    /* Stronger card backgrounds so text is always readable */
-    .service-card {
-      background: rgba(13, 31, 60, 0.88);
-    }
-    .combo-card {
-      background: rgba(13, 31, 60, 0.88);
-    }
-    .combo-card.featured {
-      background: rgba(22, 8, 14, 0.92);
-    }
-    .value-item {
-      background: rgba(13, 31, 60, 0.85);
-    }
-    .step-dot {
-      background: rgba(13, 31, 60, 0.88);
-    }
-    .step-dot-mobile {
-      background: rgba(13, 31, 60, 0.88);
-    }
-    .combo-disclaimer {
-      background: rgba(0,0,0,0.25);
-      border-color: rgba(255,255,255,0.12);
     }
 
     /* ==================== SCROLLBAR ==================== */
@@ -195,9 +129,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(0, 26, 60, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
     }
     #navbar.scrolled {
@@ -344,7 +275,7 @@
     #hero {
       position: relative;
       min-height: 100vh;
-      background: transparent;
+      background: var(--black);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -480,8 +411,9 @@
 
     /* ==================== COMBO ==================== */
     #combo {
-      background: transparent;
+      background: var(--black);
       padding: 100px 5%;
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
     .combo-header {
       text-align: center;
@@ -592,7 +524,7 @@
 
     /* ==================== SERVICIOS ==================== */
     #services {
-      background: transparent;
+      background: var(--black);
       padding: 100px 5%;
     }
     .services-header {
@@ -652,7 +584,7 @@
 
     /* ==================== PROCESO ==================== */
     #process {
-      background: transparent;
+      background: var(--navy);
       padding: 100px 5%;
     }
     .process-header {
@@ -782,7 +714,7 @@
 
     /* ==================== NOSOTROS ==================== */
     #about {
-      background: transparent;
+      background: var(--black);
       padding: 100px 5%;
     }
     .about-inner {
@@ -874,7 +806,7 @@
     /* ==================== CTA FINAL ==================== */
     #cta {
       padding: 120px 5%;
-      background: transparent;
+      background: linear-gradient(135deg, var(--black) 0%, var(--navy) 55%, #1A0510 100%);
       text-align: center;
     }
     .cta-inner {
@@ -932,9 +864,9 @@
 
     /* ==================== FOOTER ==================== */
     #footer {
-      background: rgba(0,0,0,0.25);
+      background: var(--navy-deep);
       padding: 70px 5% 30px;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid rgba(200,16,46,0.15);
     }
     .footer-grid {
       display: grid;
@@ -1888,7 +1820,7 @@
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.fillStyle = 'rgba(200,16,46,0.35)';
         ctx.fill();
       }
     }
@@ -1916,7 +1848,7 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+            ctx.strokeStyle = `rgba(200,16,46,${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -1930,7 +1862,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouseParticleX, mouseParticleY);
-          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+          ctx.strokeStyle = `rgba(200,16,46,${alpha})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
