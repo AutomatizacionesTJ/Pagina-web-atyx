@@ -409,213 +409,6 @@
       100% { transform: translateY(0); opacity: 0; }
     }
 
-    /* ==================== POR QUÉ — WEB ==================== */
-    /* ==================== POR QUÉ — SPLIT LAYOUT ==================== */
-    #why {
-      background: var(--navy);
-      padding: 100px 0 0;
-    }
-    .why-intro {
-      text-align: center;
-      padding: 0 5% 60px;
-    }
-    .why-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 640px;
-    }
-    .why-col {
-      padding: 60px 5%;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-    .why-col--web {
-      background: var(--navy-mid);
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-    .why-col--ads {
-      background: var(--navy-deep);
-      position: relative;
-    }
-    .why-col--ads::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 80% 20%, rgba(99,179,237,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .why-col-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.25rem, 2vw, 1.6rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.25;
-      margin-bottom: 4px;
-    }
-    .why-col-title span { color: var(--red); }
-    .why-col--ads .why-col-title span { color: #63B3ED; }
-    .why-col-divider {
-      width: 40px;
-      height: 3px;
-      border-radius: 2px;
-      background: var(--red);
-      margin-bottom: 4px;
-    }
-    .why-col--ads .why-col-divider { background: #63B3ED; }
-    /* Stat quote */
-    .why-stat {
-      background: rgba(200,16,46,0.05);
-      border: 1px solid rgba(200,16,46,0.14);
-      border-radius: 14px;
-      padding: 18px 22px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .why-stat.ads-stat {
-      background: rgba(99,179,237,0.05);
-      border-color: rgba(99,179,237,0.14);
-    }
-    .why-stat-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: rgba(200,16,46,0.12);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .why-stat.ads-stat .why-stat-icon { background: rgba(99,179,237,0.12); }
-    .why-stat-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--red); stroke-width: 1.8; }
-    .why-stat.ads-stat .why-stat-icon svg { stroke: #63B3ED; }
-    .why-stat-text {
-      font-size: 0.85rem;
-      color: var(--gray-light);
-      line-height: 1.6;
-      font-style: italic;
-      margin-bottom: 4px;
-    }
-    .why-stat-note {
-      font-size: 0.68rem;
-      color: var(--gray);
-      opacity: 0.7;
-    }
-    /* Row cards — stacked vertically */
-    .why-row-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .why-row-card {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 16px 20px;
-      transition: background 0.25s, border-color 0.25s, transform 0.25s;
-      cursor: default;
-    }
-    .why-row-card:hover {
-      background: rgba(200,16,46,0.06);
-      border-color: rgba(200,16,46,0.2);
-      transform: translateX(4px);
-    }
-    .why-col--ads .why-row-card:hover {
-      background: rgba(99,179,237,0.06);
-      border-color: rgba(99,179,237,0.2);
-      transform: translateX(4px);
-    }
-    .why-row-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: rgba(200,16,46,0.25);
-      line-height: 1;
-      flex-shrink: 0;
-      width: 32px;
-      text-align: right;
-      transition: color 0.25s;
-    }
-    .why-col--ads .why-row-num { color: rgba(99,179,237,0.25); }
-    .why-row-card:hover .why-row-num { color: rgba(200,16,46,0.55); }
-    .why-col--ads .why-row-card:hover .why-row-num { color: rgba(99,179,237,0.55); }
-    .why-row-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: rgba(200,16,46,0.08);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.25s;
-    }
-    .why-col--ads .why-row-icon { background: rgba(99,179,237,0.08); }
-    .why-row-card:hover .why-row-icon { background: rgba(200,16,46,0.15); }
-    .why-col--ads .why-row-card:hover .why-row-icon { background: rgba(99,179,237,0.15); }
-    .why-row-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--red); stroke-width: 1.8; }
-    .why-col--ads .why-row-icon svg { stroke: #63B3ED; }
-    .why-row-text h4 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 2px;
-    }
-    .why-row-text p {
-      font-size: 0.82rem;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    /* ==================== WHY TABS ==================== */
-    /* FAQ Accordion */
-    .why-faq {
-      margin-top: 8px;
-    }
-    .faq-list {
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .faq-item {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .faq-btn {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 4px;
-      background: transparent;
-      border: none;
-      color: var(--gray-light);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: left;
-      gap: 16px;
-      transition: color 0.2s;
-    }
-    .faq-btn:hover { color: var(--white); }
-    .faq-icon {
-      font-size: 1.3rem;
-      font-weight: 300;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-      color: var(--red);
-      line-height: 1;
-    }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-list--ads .faq-icon { color: #63B3ED; }
-    .faq-body {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.35s ease;
-    }
-    .faq-body p {
-      padding: 0 4px 18px;
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
     /* ==================== COMBO ==================== */
     #combo {
       background: var(--black);
@@ -1260,10 +1053,7 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .why-split { grid-template-columns: 1fr; }
-      .why-col { padding: 48px 6%; }
-      .why-col--web { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .why-stat { flex-direction: column; }
+.why-stat { flex-direction: column; }
       .combo-cards { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .team-cards { gap: 24px; }
@@ -1347,8 +1137,8 @@
     <ul class="nav-links">
       <li><a href="#hero">Inicio</a></li>
       <li><a href="#services">Servicios</a></li>
-      <li><a href="#why">Página web</a></li>
-      <li><a href="#why" data-tab="ads">Google Ads</a></li>
+      <li><a href="#services">Página web</a></li>
+      <li><a href="#services">Google Ads</a></li>
       <li><a href="#about">Quienes somos</a></li>
       <li><a href="mailto:automatizacionestj@gmail.com" class="nav-cta">Hablemos</a></li>
     </ul>
@@ -1361,8 +1151,8 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="#hero" onclick="closeMobile()">Inicio</a>
     <a href="#services" onclick="closeMobile()">Servicios</a>
-    <a href="#why" onclick="closeMobile()">Página web</a>
-    <a href="#why" data-tab="ads" onclick="closeMobile()">Google Ads</a>
+    <a href="#services" onclick="closeMobile()">Página web</a>
+    <a href="#services" onclick="closeMobile()">Google Ads</a>
     <a href="#about" onclick="closeMobile()">Quienes somos</a>
     <a href="mailto:automatizacionestj@gmail.com" class="mobile-cta">Hablemos</a>
   </div>
@@ -1573,188 +1363,6 @@
     </div>
   </section>
 
-  <!-- ==================== POR QUÉ ==================== -->
-  <section id="why">
-    <div class="why-intro reveal">
-      <div class="section-tag">Presencia digital que convierte</div>
-      <h2 class="section-title">¿Por qué invertir en <span class="text-red">tu presencia online</span>?</h2>
-      <div class="divider"></div>
-    </div>
-
-    <div class="why-split">
-
-      <!-- COLUMNA: PÁGINA WEB -->
-      <div class="why-col why-col--web">
-        <h3 class="why-col-title">¿Por qué necesitas una <span>página web</span>?</h3>
-        <div class="why-col-divider"></div>
-
-        <!-- TODO: verificar dato/fuente antes de publicar -->
-        <div class="why-stat reveal">
-          <div class="why-stat-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </div>
-          <div>
-            <p class="why-stat-text">"Más del 80% de los consumidores investiga una empresa online antes de contactar."</p>
-            <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
-          </div>
-        </div>
-
-        <div class="why-row-list">
-          <div class="why-row-card reveal">
-            <span class="why-row-num">01</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="why-row-text">
-              <h4>Presencia 24/7</h4>
-              <p>Visible siempre, sin horarios ni descansos.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">02</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="why-row-text">
-              <h4>Credibilidad</h4>
-              <p>Proyecta seriedad desde el primer clic.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">03</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="21" x2="23" y2="19"/><line x1="19" y1="15" x2="19" y2="21"/></svg></div>
-            <div class="why-row-text">
-              <h4>Captación automática</h4>
-              <p>Tu web trabaja y genera clientes por ti.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">04</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-            <div class="why-row-text">
-              <h4>SEO incluido</h4>
-              <p>Apareces cuando ya te están buscando.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ acordeón -->
-        <div class="why-faq">
-          <div class="faq-list">
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>Una web es muy cara para mi negocio</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>Adaptamos el proyecto a tu presupuesto. Una web bien hecha se amortiza con los primeros clientes que genera.</p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>Con redes sociales ya tengo suficiente</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>Las redes son temporales. Tu web es tu propiedad: nadie te la puede cerrar ni cambiar las reglas de visibilidad.</p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>No sé si mis clientes usan internet</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>La mayoría busca en Google antes de llamar. Si no apareces, simplemente no existes para ese cliente.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- COLUMNA: GOOGLE ADS -->
-      <div class="why-col why-col--ads">
-        <h3 class="why-col-title">¿Por qué necesitas <span>Google Ads</span>?</h3>
-        <div class="why-col-divider"></div>
-
-        <!-- TODO: verificar dato/fuente antes de publicar -->
-        <div class="why-stat ads-stat reveal">
-          <div class="why-stat-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-          </div>
-          <div>
-            <p class="why-stat-text">"Los anuncios en la parte superior de Google reciben la mayoría de los clics de búsqueda."</p>
-            <p class="why-stat-note">Dato orientativo — verificar fuente exacta antes de publicar.</p>
-          </div>
-        </div>
-
-        <div class="why-row-list">
-          <div class="why-row-card reveal">
-            <span class="why-row-num">01</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <div class="why-row-text">
-              <h4>Resultados inmediatos</h4>
-              <p>Arriba en Google desde el primer día.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">02</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <div class="why-row-text">
-              <h4>Pagas por resultados</h4>
-              <p>Solo pagas cuando alguien hace clic.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">03</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
-            <div class="why-row-text">
-              <h4>Segmentación precisa</h4>
-              <p>Delante de quien ya busca lo tuyo.</p>
-            </div>
-          </div>
-          <div class="why-row-card reveal">
-            <span class="why-row-num">04</span>
-            <div class="why-row-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <div class="why-row-text">
-              <h4>Datos en tiempo real</h4>
-              <p>Sabes exactamente qué funciona.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ acordeón -->
-        <div class="why-faq">
-          <div class="faq-list faq-list--ads">
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>Google Ads es solo para grandes empresas</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>Puedes empezar con un presupuesto pequeño y escalarlo cuando veas resultados. El tamaño no importa, la estrategia sí.</p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>Es muy complicado y no lo entenderé</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>Nosotros gestionamos todo por ti y te explicamos los resultados en un lenguaje claro, sin tecnicismos.</p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-btn">
-                <span>Si paro los anuncios, pierdo todo</span>
-                <span class="faq-icon">+</span>
-              </button>
-              <div class="faq-body">
-                <p>Los Ads generan tráfico mientras están activos. Combinados con SEO, aseguras visibilidad a largo plazo incluso si pausas las campañas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ==================== COMBO ==================== -->
   <section id="combo">
@@ -1921,8 +1529,8 @@
         <ul>
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#services">Servicios</a></li>
-          <li><a href="#why">Página web</a></li>
-          <li><a href="#why" data-tab="ads">Google Ads</a></li>
+          <li><a href="#services">Página web</a></li>
+          <li><a href="#services">Google Ads</a></li>
           <li><a href="#about">Quienes somos</a></li>
           <li><a href="mailto:automatizacionestj@gmail.com">Contacto</a></li>
         </ul>
@@ -2118,27 +1726,6 @@
       });
     });
 
-
-    /* ==================== FAQ ACCORDION ==================== */
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.faq-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var item = btn.parentElement;
-          var list = item.parentElement;
-          var body = item.querySelector('.faq-body');
-          var isOpen = item.classList.contains('open');
-          // Close all in same list
-          list.querySelectorAll('.faq-item').forEach(function(i) {
-            i.classList.remove('open');
-            i.querySelector('.faq-body').style.maxHeight = null;
-          });
-          if (!isOpen) {
-            item.classList.add('open');
-            body.style.maxHeight = body.scrollHeight + 'px';
-          }
-        });
-      });
-    });
 
     /* ==================== GSAP REGISTER ==================== */
     gsap.registerPlugin(ScrollTrigger);
