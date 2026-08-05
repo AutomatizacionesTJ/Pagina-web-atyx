@@ -328,6 +328,20 @@
       margin: 0 auto 40px;
       opacity: 0;
     }
+    .hero-slogan {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.55;
+      max-width: 620px;
+      margin: 0 auto 20px;
+      opacity: 0;
+    }
+    .hero-slogan em {
+      color: var(--red);
+      font-style: normal;
+    }
     .hero-buttons {
       display: flex;
       gap: 16px;
@@ -1180,6 +1194,7 @@
           </h1>
         </div>
       </div>
+      <p class="hero-slogan" id="hero-slogan">En ATYX transformamos visitantes en clientes en una era donde <em>no aparecer en internet es no existir</em>.</p>
       <p class="hero-subtitle" id="hero-sub">
         Diseñamos webs, mejoramos tu posicionamiento en Google y gestionamos campañas de publicidad que atraen clientes. Todo lo que tu negocio necesita para destacar online, bajo un mismo techo.
       </p>
@@ -1890,6 +1905,7 @@
     const tl = gsap.timeline({ delay: 0.3 });
     tl.to('.hero-tag', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
       .to('.word', { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out' }, '-=0.2')
+      .to('#hero-slogan', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2')
       .to('#hero-sub', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.3')
       .to('#hero-btns', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3')
       .to('#hero-chips', { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
